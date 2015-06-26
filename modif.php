@@ -67,6 +67,7 @@ $recup_section = mysqli_query($mysqli, $sql);
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
         <title></title>
     </head>
     <body>
@@ -81,16 +82,40 @@ $recup_section = mysqli_query($mysqli, $sql);
                         switch($_SESSION['laperm']){
                             // si on est l'admin
                             case 0 :
-                               echo "<a href='admin.php'>Administrer le site</a> - <a href='client.php'>Espace membre</a>";
+                               echo "<a href='admin.php'>Administrer le site</a> ";
                                 break;
                             // si on est modérateur
                             case 1:
-                                echo "<a href='modere.php'>Modérer le site</a> - <a href='client.php'>Espace membre</a>";
+                                echo "<a href='modere.php'>Modérer le site</a> ";
                                 break;
                             // si autre droit (ici simple utilisateur)
                             default :
                                 echo "<a href='client.php'>Espace membre</a>";
                         }?></div>
+                 <nav id="menu">
+            
+        <ul>
+             <li><a href="index.php">Accueil</a></li>            
+             <li><a>Catégories</a>
+                    <ul>         
+                        <?php
+                        $sqlr = "SELECT * FROM rubriques";
+    $q = mysqli_query($mysqli,$sqlr);
+
+
+    while($r = mysqli_fetch_assoc($q))
+    {
+    echo "<li><a href='categories.php?idsection=".$r['id']."'>".$r['lintitule']."</a></li>";
+    }
+
+                                         ?>
+                    </ul>
+ </li>
+            <li><a href="contact.php">Nous contacter</a></li>
+            <li><a href="client.php">Espace Client</a></li>
+       
+       </ul>
+</nav>
             </div>
              <div id="milieu">
                  <div id="formulaire">

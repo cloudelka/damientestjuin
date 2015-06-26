@@ -7,16 +7,36 @@ require_once 'fonctions-pagination.php';
 
 
 $recupmail = "SELECT lemail FROM utilisateur WHERE id=1";
+$recupmail2 = mysqli_query ($mysqli,$recupmail);
+$recupmail3 = mysqli_fetch_assoc($recupmail2);
 
 if (isset($_POST['nom'])) {
     $nom = strip_tags(trim($_POST['nom']));
     $titre = strip_tags(trim($_POST['titre']));
     $mail = strip_tags(trim($_POST['lemail']));
     $texte = strip_tags(trim($_POST['lemessage']));
-    $monmail = "";
+    $monmail = $recupmail3['lemail'];
     $entete = 'From: '.$mail."\r\n".'Reply-To: '.$mail."\r\n".'X-Mailer: PHP/'.phpversion();
-    mail($monmail, $nom, $titre, $texte,$entete);
+    if(mail($monmail, $nom, $titre, $texte,$entete))
+    
+    
+     {
+          echo 'Le message a bien été envoyé';
+     }
+     else
+     {
+          echo 'Le message n\'a pu être envoyé';
+     } 
+    
+    
+    
+    
+    
 }
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html>

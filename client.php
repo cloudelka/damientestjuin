@@ -90,7 +90,7 @@ if(isset($_GET['delete'])&& ctype_digit($_GET['delete'])){
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // on va compter le nombre de lignes de résultat pour la pagination, le COUNT ne renvoie q'une ligne de résultat
-$recup_nb_proverbes = "SELECT COUNT(*) AS nb FROM photo;";
+$recup_nb_proverbes = "SELECT COUNT(*) AS nb FROM photo WHERE utilisateur_id=".$_SESSION['id'].";";
 // requete de récupération
 $tot = mysqli_query($mysqli,$recup_nb_proverbes);
 // transformation du résultat en tableau associatif
@@ -122,7 +122,7 @@ $sql = "SELECT p.*, GROUP_CONCAT(r.id) AS idrub, GROUP_CONCAT(r.lintitule SEPARA
 	LEFT JOIN photo_has_rubriques h ON h.photo_id = p.id
     LEFT JOIN rubriques r ON h.rubriques_id = r.id
         WHERE p.utilisateur_id = ".$_SESSION['id']."
-        GROUP BY p.id
+        GROUP BY p.id 
         ORDER BY p.id DESC
         LIMIT $debut,$elements_par_page;
     ";
