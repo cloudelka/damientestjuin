@@ -73,19 +73,20 @@ $recup_sql = mysqli_query($mysqli,$sql) or die(mysqli_error($mysqli));
     </head>
     <body><div id="haut">
                          <?php
-        if (!isset($_SESSION['sid']) || $_SESSION['sid'] != session_id()) {
-    echo "<h1>Telepro-photos.fr - Accueil</h1>";
-}else{
-    if(!isset($_GET['idsection'])){
-echo "<h1>Telepro-photos.fr</h1>";
-    }else{
-        // requete pour nom catÃ©gorie //
+                                 // requete pour nom catÃ©gorie //
     $idsectionrub = $_GET['idsection'];
     $sqlrubrique = "SELECT * FROM rubriques WHERE id=$idsectionrub";
     $rubb = mysqli_query($mysqli,$sqlrubrique);
 
     $rubrr = mysqli_fetch_assoc($rubb);
 ////////////////////////////////
+        if (!isset($_SESSION['sid']) || $_SESSION['sid'] != session_id()) {
+    echo "<h1>Telepro-photos.fr - ".$rubrr['lintitule']."</h1>";
+}else{
+    if(!isset($_GET['idsection'])){
+echo "<h1>Telepro-photos.fr</h1>";
+    }else{
+
         echo "<h1>Telepro-photos.fr  -  ".$rubrr['lintitule']."</h1>";
     }
     
