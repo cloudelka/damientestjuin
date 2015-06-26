@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding : 0;
+}
+body {
+    background-color: #F4F4F4;
+
+    
+}
+
+#menu ul {
+ margin:0;
+ padding:0;
+ list-style-type:none;
+ text-align:center;
+ }
+#menu li {
+ float:left;
+ margin:auto;
+ padding:0;
+ background-color:brown;
+ }
+#menu li a {
+ display:block;
+ width:100px;
+ color:white;
+ text-decoration:none;
+ padding:5px;
+ }
+#menu li a:hover {
+ color:#FFD700;
+ }
+ 
+ #menu ul li ul {
+ display:none;
+ }
+ #menu ul li:hover ul {
+ display:block;
+ }
+#menu li:hover ul li {
+ float:none;
+ }
+ #menu li ul {
+ position:absolute;
+ }
+ #lesphotos{
+     width : 1216px;
+     min-height: 800px;
+ 
+     margin-left: auto;
+     margin-right: auto;
+ }
+ .miniatures{
+      width : 150px;
+     min-height: 335px;
+     border: 1px solid black;
+     display: inline-block;
+ }
+ #haut {
+          width : 100%;
+     min-height: 147px;     
+     margin-left: auto;
+     margin-right: auto;
+ text-align: center;
+ margin-top:5px;
+     background-color: brown;
+     color:white;
+     
+ }
+ nav {
+border-top: 2px solid black;
+     border-bottom: 2px solid black;
+     height: 29px;
+     background-color:brown;
+ }
+ #formulaire{
+     text-align:center;
+      margin-top: 2px;
+     background-color:#AAAAAA;
+     padding-top:30px;
+     padding-bottom: 30px;
+
+ }
+ li {
+     color: white;
+ }
+ 
+ #pagination {
+     text-align : center;
+     margin: 20px;
+ }
+ 
+ #connect {
+     width : 500px;
+     height: 300px;
+         margin-left: auto;
+         margin-right: auto;
+         margin-top: 200px;
+ }
+ 
+ #contactformu
+ {
+     width: 452px;
+     height: 400px;
+     margin-left: auto;
+     margin-right:auto;
+     margin-top: 100px;
+     border: 10px solid brown;
+     background-color:brown;
+ }
+ #contactformu input {
+     width: 450px;
+     margin-top :10px;
+ }
+ #contactformu textarea
+ {
+     width: 450px;
+      margin-top :10px;
+     height: 250px;
+ }
